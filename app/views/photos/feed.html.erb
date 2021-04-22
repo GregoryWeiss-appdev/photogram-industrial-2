@@ -23,8 +23,6 @@
   </div>
 </div>
 
-<%= Photo.past_week.count %>
-
 <% Photo.past_week.each do |photo| %>
   <%= render "photos/photo", photo: photo %>
 <% end %>

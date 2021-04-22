@@ -23,8 +23,6 @@
   </div>
 </div>
 
-<%= current_user.accepted_sent_follow_requests.count %>
-
 <ul class="list-group">
   <% current_user.accepted_sent_follow_requests.each do |person| %>
     <%= render "users/user_list", person: person %>
