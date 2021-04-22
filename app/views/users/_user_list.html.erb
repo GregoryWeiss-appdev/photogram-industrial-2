@@ -1,0 +1,6 @@
+<% if current_user == person.sender %>
+  <%= link_to "#{person.recipient.username}", user_path(person.recipient.username), class: "list-group-item list-group-item-action" %>
+<% else %>
+  <%= link_to "#{person.sender.username}", user_path(person.sender.username), class: "list-group-item list-group-item-action" %>
+<% end %>
+
