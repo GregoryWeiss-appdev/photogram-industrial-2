@@ -8,13 +8,13 @@
         <%= link_to "Posts", user_path(@user.username), class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Liked photos", liked_photos_path(@user.username), class: "nav-link active" %>
+        <%= link_to "Liked photos", liked_photos_path(@user.username), class: "nav-link" %>
       </li>
       <li class="nav-item">
         <%= link_to "Feed", feed_photos_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Followers", followers_path, class: "nav-link" %>
+        <%= link_to "Followers", followers_path, class: "nav-link active" %>
       </li>
       <li class="nav-item">
         <%= link_to "Following", following_path, class: "nav-link" %>
@@ -23,8 +23,10 @@
   </div>
 </div>
 
-<%= current_user.liked_photos.count %>
+<%= current_user.accepted_received_follow_requests.count %>
 
-<% current_user.liked_photos.each do |photo| %>
-  <%= render "photos/photo", photo: photo %>
-<% end %>
+<ul class="list-group">
+  <% current_user.accepted_received_follow_requests.each do |person| %>
+    <%= render "users/user_list", person: person %>
+  <% end %>
+</ul>
